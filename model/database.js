@@ -19,7 +19,7 @@ con.connect(function(err) {
   console.log("Connected!");
 
   let sql =
-  "CREATE TABLE `candidats` (`id` INT NOT NULL AUTO_INCREMENT,`full-name` varchar(255) NOT NULL,`project` varchar(255) NOT NULL,`email` varchar(255) NOT NULL,`residency-name` varchar(255) NOT NULL,`status` BOOLEAN NOT NULL,PRIMARY KEY (`id`));CREATE TABLE `openCall` (`id` INT NOT NULL AUTO_INCREMENT,`residency-name` varchar(255) NOT NULL,`gallery` varchar(255) NOT NULL,`description` varchar(255) NOT NULL,`status` BOOLEAN NOT NULL,PRIMARY KEY (`id`));";
+  "CREATE TABLE `candidats` (`id` INT AUTO_INCREMENT,`fullName` varchar(255),`project` varchar(255),`email` varchar(255),`residencyName` varchar(255),`status` BOOLEAN,PRIMARY KEY (`id`));CREATE TABLE `openCall` (`id` INT AUTO_INCREMENT,`residencyName` varchar(255),`gallery` varchar(255),`description` varchar(255),`status` BOOLEAN,PRIMARY KEY (`id`));";
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `candidats` and `openCall` was successful!");
