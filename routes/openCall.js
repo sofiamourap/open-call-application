@@ -10,6 +10,17 @@ router.get('/', function(req, res) {
       })
       .catch(err => res.status(500).send(err));
   });
+
+  //GET openCall info
+  //SELECT openCall.residency_name,openCall.description, openCall.status, candidats.full_name, candidats.email, candidats.project, gallery.name FROM openCall JOIN candidats ON candidats.residency_id = openCall.id JOIN gallery ON openCall.gallery_id = gallery.id;
+  router.get('/:id/info', function(req, res) {
+    const { id } = req.params;
+    db(`SELECT openCall.residency_name,openCall.description, openCall.status, candidats.full_name, candidats.email, candidats.project, gallery.name FROM openCall JOIN candidats ON candidats.residency_id = openCall.id JOIN gallery ON openCall.gallery_id = gallery.id WHERE openCall.id="${id}";`)
+    .then(result => {
+      res.send(result.data)
+    })
+    .catch(err => res.status(500).send(err));
+  })
   
   //GET open Call by id
   router.get('/:id', function(req, res) {
