@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/candidats', candidatsRouter);
 app.use('/gallery', galleryRouter);
-app.use('/openCall', openCallRouter);
+app.use('/opencall', openCallRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

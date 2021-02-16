@@ -23,15 +23,29 @@ router.get('/', function(req, res) {
   
   //POST open Call
   router.post('/', function(req, res){
-    const {residencyName, gallery, description} = req.body;
-    db(`INSERT INTO openCall (residencyName, gallery, description, status) VALUES ("${residencyName}", "${gallery}", "${description}", "1");`)
+    const {residency_name, gallery_id, description} = req.body;
+    db(`INSERT INTO openCall (residency_name, gallery_id, description, status) VALUES ("${residency_name}", "${gallery_id}", "${description}", "1");`)
     .then(res.send({message: "Open Call uploaded successfully"}))
     .catch(err => res.status(500).send(err));
   })
   
-  //EDIT oen Call
-  router.put('/:id', function(req, res){
-    db(``)
-  })
+  //EDIT open Call  how can I allow changes to be made but if they are not specify it doesnt matter?
+  router.put('/:id', function(req,res){
+    const { id } = req.params;
+    const { gallery_id, status } = req.body;
+    db(`UPDATE openCall SET gallery_id="${gallery_id}", status="${status}" WHERE id="${id}";`)
+    .then(res.send(
+      {message: "status updated"}
+      ))
+    .catch(err => res.status(500).send(err));
+  });
+
+  //DELETE open Call
+  router.delete('/:id', function(req, res){
+    const { id } = req.params;
+    db(`DELETE FROM openCall WHERE id="${id}";`)
+    .then(res.send({ message: "project deleted"}))
+    .catch(err => res.status(500).send(err))
+  });
 
 module.exports = router;

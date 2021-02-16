@@ -2,37 +2,50 @@ var express = require('express');
 var router = express.Router();
 const db = require("../model/helper");
 
-// // GET all open Calls
-// router.get('/', function(req, res) {
-//   db("SELECT * FROM openCall;")
-//     .then(result => {
-//       res.send(result.data);
-//     })
-//     .catch(err => res.status(500).send(err));
-// });
+// GET all galleries
+router.get('/', function(req, res) {
+  db("SELECT * FROM gallery;")
+    .then(result => {
+      res.send(result.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
 
-// //GET open Call by id
-// router.get('/:id', function(req, res) {
-//   const { id } = req.params;
-//   db(`SELECT * FROM openCall WHERE id="${id}";`)
-//   .then(result => {
-//     res.send(result.data)
-//   })
-//   .catch(err => res.status(500).send(err));
-// })
+//GET gallery info + openCalls
+router.get('/:id/opencalls', function(req, res) {
+  const { id } = req.params;
+  db(`SELECT gallery.name, gallery.country, gallery.city, openCall.residency_name FROM gallery JOIN openCall ON openCall.gallery_id =gallery.id WHERE gallery.id=${id};`)
+  .then(result => {
+    res.send(result.data)
+  })
+  .catch(err => res.status(500).send(err));
+})
 
-// //POST open Call
-// router.post('/', function(req, res){
-//   const {residencyName, gallery, description} = req.body;
-//   db(`INSERT INTO openCall (residencyName, gallery, description, status) VALUES ("${residencyName}", "${gallery}", "${description}", "1");`)
-//   .then(res.send({message: "Open Call uploaded successfully"}))
-//   .catch(err => res.status(500).send(err));
-// })
+//GET Gallery by id
+router.get('/:id', function(req, res) {
+  const { id } = req.params;
+  db(`SELECT * FROM gallery WHERE id="${id}";`)
+  .then(result => {
+    res.send(result.data)
+  })
+  .catch(err => res.status(500).send(err));
+})
 
-// //EDIT oen Call
-// router.put('/:id', function(req, res){
-//   db(``)
-// })
+//POST a new gallery
+router.post('/', function(req, res){
+  const {name, country, city} = req.body;
+  db(`INSERT INTO gallery (name, country, city) VALUES ("${name}", "${country}", "${city}");`)
+  .then(res.send({message: "Gallery uploaded successfully"}))
+  .catch(err => res.status(500).send(err));
+})
+
+//DELETE a gallery
+router.delete('/:id', function(req, res){
+  const { id } = req.params;
+  db(`DELETE FROM gallery WHERE id="${id}";`)
+  .then(res.send({ message: "gallery deleted"}))
+  .catch(err => res.status(500).send(err))
+});
 
 
 module.exports = router;
