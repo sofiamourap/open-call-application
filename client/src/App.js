@@ -31,9 +31,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>HOME</h1>
+        <h1>
+          <Link to="/">HOME</Link>
+        </h1>
 
         <Link to="/openCall">Open Calls</Link>
+        <br></br>
+        <Link to="/galleries">Galleries</Link>
 
         <Switch>
           <Route path="/openCall">

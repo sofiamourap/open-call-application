@@ -18,7 +18,6 @@ export default function Home() {
   useEffect(() => {
     getOpenCalls();
   }, []);
-
   return (
     <div>
       <h1>OPEN CALLS</h1>
@@ -29,6 +28,7 @@ export default function Home() {
           {e.description} - {e.status}
         </div>
       ))}
+      ;<h2> GALLERIES</h2>
     </div>
   );
 }
