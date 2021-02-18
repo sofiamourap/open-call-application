@@ -22,7 +22,7 @@ export default function Home() {
     <div>
       <h1>OPEN CALLS</h1>
       {openCalls.map((e) => (
-        <div>
+        <div key={e.id}>
           <h3>{e.gallery_id}</h3>
           <h5>{e.residency_name}</h5>
           {e.description} - {e.status}

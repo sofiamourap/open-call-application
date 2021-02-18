@@ -21,7 +21,7 @@ export default function Galleries() {
     <div>
       <h1>GALLERIES</h1>
       {galleries.map((g) => (
-        <div>
+        <div key={g.id}>
           <h3>{g.name}</h3>
           {g.country} - {g.city}
         </div>

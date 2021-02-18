@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function apply() {
+export default function CandidatsApplication() {
   return <div></div>;
 }

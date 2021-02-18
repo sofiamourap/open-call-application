@@ -1,56 +1,42 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 const db = require("../model/helper");
 
 // GET all projects posted by the candidats
-router.get('/', function(req, res, next) {
+router.get("/", function (req, res, next) {
   db("SELECT * FROM candidats;")
-    .then(result => {
+    .then((result) => {
       res.send(result.data);
     })
-    .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 });
 
 //GET candidats by id
-router.get('/:id', function(req, res){
+router.get("/:id", function (req, res) {
   const { id } = req.params;
   db(`SELECT * FROM candidats WHERE id=${id}`)
-    .then(result => {
+    .then((result) => {
       res.send(result.data);
     })
-    .catch(err => res.status(500).send(err));
-});
-
-//POST project
-
-router.post('/', function(req, res){
-  const {full_name, project, email, residency_id} = req.body;
-  db(`INSERT INTO candidats (full_name, project, email, residency_id) VALUES ("${full_name}", "${project}","${email}", "${residency_id}");`)
-  .then(res.send(
-    {message: "Project uploaded"}
-    ))
-  .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 });
 
 //EDIT status of the uploaded project. false = not selected, true = selected
-router.put('/:id', function(req,res){
+router.put("/:id", function (req, res) {
   const { id } = req.params;
   const { status } = req.body;
   db(`UPDATE candidats SET status="${status}" WHERE id="${id}";`)
-  .then(res.send(
-    {message: "status updated"}
-    ))
-  .catch(err => res.status(500).send(err));
+    .then(res.send({ message: "status updated" }))
+    .catch((err) => res.status(500).send(err));
 });
 
 //DELETE a project
-router.delete('/:id', function(req, res){
+router.delete("/:id", function (req, res) {
   const { id } = req.params;
   db(`DELETE FROM candidats WHERE id="${id}";`)
-  .then(res.send({ message: "project deleted"}))
-  .catch(err => res.status(500).send(err))
+    .then(res.send({ message: "project deleted" }))
+    .catch((err) => res.status(500).send(err));
 });
-
 
 //create a module that checks if the id is valid
 module.exports = router;
