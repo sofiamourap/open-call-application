@@ -1,5 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Gallery() {
-  return <div></div>;
+  const [gallery, setGallery] = useState([]);
+  const { id } = useParams();
+
+  const getGallery = () => {
+    fetch(`/gallery/${id}/opencalls`)
+      .then((response) => response.json())
+      .then((gal) => {
+        setGallery(gal);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getGallery();
+  }, []);
+
+  return (
+    <div>
+      {console.log(gallery)}
+      {gallery.map((g) => (
+        <div key={g.id}>
+          <h1>{g.name}</h1>
+          <h3>
+            {g.country} | {g.city}
+          </h3>
+          {g.residency_name}
+        </div>
+      ))}
+    </div>
+  );
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Post() {
   const [openCalls, setOpenCalls] = useState([]);
+  // const [candidats, setCandidats] = useState([]);
 
   const getOpenCalls = () => {
     fetch("/opencall")
@@ -16,7 +17,11 @@ export default function Post() {
 
   useEffect(() => {
     getOpenCalls();
+    insertCandidat();
   }, []);
+
+  const insertCandidat = () => {};
+
   return (
     <div>
       <h1>OPEN CALLS</h1>

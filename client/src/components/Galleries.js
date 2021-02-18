@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link, Route, Switch } from "react-router-dom";
+import Gallery from "./Gallery";
 
 export default function Galleries() {
   const [galleries, setGalleries] = useState([]);
 
+  //display list of galleries (on click, open gallery by id)
   const getGalleries = () => {
     fetch("/gallery")
       .then((response) => response.json())
@@ -22,10 +25,17 @@ export default function Galleries() {
       <h1>GALLERIES</h1>
       {galleries.map((g) => (
         <div key={g.id}>
-          <h3>{g.name}</h3>
+          <h3>
+            <Link to={`gallery/${g.id}`}>{g.name}</Link>
+          </h3>
           {g.country} - {g.city}
         </div>
       ))}
+      <Switch>
+        <Route path="/gallery/:id">
+          <Gallery />
+        </Route>
+      </Switch>
     </div>
   );
 }

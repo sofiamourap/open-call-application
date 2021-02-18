@@ -26,19 +26,17 @@ function App() {
           <Route path="/openCall/:id">
             <OpenCall />
           </Route>
-
           <Route path="/openCall">
             <OpenCalls />
+          </Route>
+          <Route path="/gallery/:id">
+            <Gallery />
           </Route>
           <Route path="/galleries">
             <Galleries />
           </Route>
           <Route path="/post">
             <Post />
-          </Route>
-
-          <Route path="/admin">
-            <Gallery />
           </Route>
         </Switch>
       </div>
