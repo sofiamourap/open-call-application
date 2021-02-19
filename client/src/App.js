@@ -7,6 +7,7 @@ import OpenCall from "./components/OpenCall";
 import Galleries from "./components/Galleries";
 import Post from "./components/Post";
 import Gallery from "./components/Gallery";
+import CandidatsApplication from "./components/CandidatsApplication";
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/post">
             <Post />
+          </Route>
+          <Route path="/application">
+            <CandidatsApplication />
           </Route>
         </Switch>
       </div>

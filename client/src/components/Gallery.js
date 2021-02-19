@@ -20,14 +20,13 @@ export default function Gallery() {
 
   return (
     <div>
-      {console.log(gallery)}
       {gallery.map((g) => (
         <div key={g.id}>
           <h1>{g.name}</h1>
           <h3>
             {g.country} | {g.city}
           </h3>
-          {g.residency_name}
+          <li>{g.residency_name}</li>
         </div>
       ))}
     </div>
