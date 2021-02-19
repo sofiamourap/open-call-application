@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, Route, Switch, useParams } from "react-router-dom";
+import Gallery from "./Gallery";
 
 export default function CandidatsApplication() {
   const [openCallInfo, setOpenCallInfo] = useState([]);
@@ -12,7 +13,7 @@ export default function CandidatsApplication() {
         setOpenCallInfo(info);
       });
   };
-  console.log(id);
+  // console.log(id);
   useEffect(() => {
     getOpenCallInfo();
   }, []);
@@ -20,11 +21,18 @@ export default function CandidatsApplication() {
     <div>
       {openCallInfo.map((inf) => (
         <div key={inf.id}>
+          {console.log(inf)}
           <h1>{inf.residency_name}</h1>
           <h2>{inf.name}</h2>
+
           <li>{inf.description}</li>
         </div>
       ))}
+      <Switch>
+        <Route path="/gallery/:id">
+          <Gallery />
+        </Route>
+      </Switch>
     </div>
   );
 }

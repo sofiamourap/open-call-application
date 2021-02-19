@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import { Link, Switch, Route } from "react-router-dom";
+import CandidatsApplication from "./CandidatsApplication";
 export default function Post() {
   const [openCalls, setOpenCalls] = useState([]);
   // const [candidats, setCandidats] = useState([]);
@@ -27,9 +28,18 @@ export default function Post() {
       <h1>OPEN CALLS</h1>
       {openCalls.map((o) => (
         <div key={o.id}>
-          <h3>{o.residency_name}</h3>
+          <Link to={`/application/${o.id}`}>
+            {" "}
+            <h3>{o.residency_name}</h3>
+          </Link>
         </div>
       ))}
+      <p>this is a admin page</p>
+      <Switch>
+        <Route path="/application/:id">
+          <CandidatsApplication />
+        </Route>
+      </Switch>
     </div>
   );
 }

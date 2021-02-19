@@ -39,7 +39,7 @@ router.post("/:id/candidats", function (req, res) {
 router.get("/:id", function (req, res) {
   const { id } = req.params;
   db(
-    `SELECT openCall.residency_name, openCall.id, openCall.description, openCall.status, gallery.name FROM openCall JOIN gallery ON openCall.gallery_id = gallery.id WHERE openCall.id="${id}";`
+    `SELECT openCall.residency_name, openCall.id, openCall.gallery_id, openCall.description, openCall.status, gallery.name FROM openCall JOIN gallery ON openCall.gallery_id = gallery.id WHERE openCall.id="${id}";`
   )
     //
     .then((result) => {
@@ -67,10 +67,10 @@ router.delete("/:id", function (req, res) {
     .catch((err) => res.status(500).send(err));
 });
 
-// GET all open Calls + Gallery name
+// GET all open Calls + Gallery name and gallery_id
 router.get("/", function (req, res) {
   db(
-    "SELECT openCall.residency_name, openCall.description, openCall.status, openCall.id, gallery.name FROM openCall JOIN gallery ON openCall.gallery_id = gallery.id;"
+    "SELECT openCall.residency_name, openCall.description, openCall.gallery_id, openCall.status, openCall.id, gallery.name FROM openCall JOIN gallery ON openCall.gallery_id = gallery.id;"
   )
     .then((result) => {
       res.send(result.data);

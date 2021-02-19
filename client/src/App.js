@@ -21,7 +21,7 @@ function App() {
         <br></br>
         <Link to="/galleries">Galleries</Link>
         <br></br>
-        <Link to="/post">Post</Link>
+        <Link to="/post">Post | admin page</Link>
 
         <Switch>
           <Route path="/openCall/:id">
