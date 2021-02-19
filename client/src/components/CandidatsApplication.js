@@ -11,12 +11,6 @@ export default function CandidatsApplication() {
     project: "",
   });
 
-  //I need to fetch /opencall/:id/candidats to post a new project
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    postNewProject();
-  };
-
   const postNewProject = async () => {
     try {
       const response = await fetch(`/opencall/${id}/candidats`, {
@@ -25,6 +19,7 @@ export default function CandidatsApplication() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(newProject),
+        //I want to send back the upload response to the user
       }).then((res) => console.log(res));
     } catch (err) {
       console.log(err);
@@ -43,16 +38,14 @@ export default function CandidatsApplication() {
     getOpenCallInfo();
   }, []);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    postNewProject();
+  };
+
   const handleChange = ({ target }) => {
     setNewProject((state) => ({ ...state, [target.name]: target.value }));
   };
-  // function handleChange(event) {
-  //   const { value } = event.target;
-  //   setInput({
-  //     ...input,
-  //     [event.target.name]: value,
-  //   });
-  // }
 
   return (
     <div>
@@ -68,7 +61,7 @@ export default function CandidatsApplication() {
       <div>
         <form onSubmit={handleSubmit}>
           <label>
-            Full name{" "}
+            Full name
             <input
               type="text"
               name="full_name"
@@ -77,7 +70,7 @@ export default function CandidatsApplication() {
             />
           </label>
           <label>
-            Email{" "}
+            Email
             <input
               name="email"
               value={newProject.email}
@@ -85,7 +78,7 @@ export default function CandidatsApplication() {
             />
           </label>
           <label>
-            Project{" "}
+            Project
             <input
               name="project"
               value={newProject.project}
