@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, Switch, Route } from "react-router-dom";
-import OpenCall from "./OpenCall";
+import CandidatsApplication from "./CandidatsApplication";
 
 export default function Home() {
   const [openCalls, setOpenCalls] = useState([]);
@@ -24,17 +24,19 @@ export default function Home() {
       <h1>OPEN CALLS</h1>
       {openCalls.map((e) => (
         <div key={e.id}>
-          <Link to={`openCall/${e.id}`}>
-            <h3>{e.gallery_id}</h3>
+          <h3>{e.name}</h3>
+          {console.log(e.id)}
+
+          <Link to={`application/${e.id}`}>
             <h5>{e.residency_name}</h5>
             {e.description} - {e.status}
           </Link>
         </div>
       ))}
-      ;<h2> GALLERIES</h2>
+      ;
       <Switch>
-        <Route to="openCall/:id">
-          <OpenCall />
+        <Route to="/application/:id">
+          <CandidatsApplication />
         </Route>
       </Switch>
     </div>

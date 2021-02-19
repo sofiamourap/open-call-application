@@ -51,6 +51,7 @@ export default function OpenCall() {
       </div>
       <div>
         <h4>TOTAL ARTISTS: {candidats.length}</h4>
+        <p>This is a admin page</p>
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ function App() {
           <Route path="/post">
             <Post />
           </Route>
-          <Route path="/application">
+          <Route path="/application/:id">
             <CandidatsApplication />
           </Route>
         </Switch>
