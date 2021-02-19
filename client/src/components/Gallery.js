@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, Route, Switch, useParams } from "react-router-dom";
+import OpenCalls from "./OpenCalls";
 
 export default function Gallery() {
   const [gallery, setGallery] = useState([]);
@@ -17,7 +18,7 @@ export default function Gallery() {
   useEffect(() => {
     getGallery();
   }, []);
-
+  //link to application
   return (
     <div>
       {gallery.map((g) => (
@@ -26,9 +27,17 @@ export default function Gallery() {
           <h3>
             {g.country} | {g.city}
           </h3>
-          <li>{g.residency_name}</li>
+          <h4>Open Calls</h4>
+          <Link to={"/openCall"}>
+            <li>{g.residency_name}</li>
+          </Link>
         </div>
       ))}
+      <Switch>
+        <Route path="/openCall">
+          <OpenCalls />
+        </Route>
+      </Switch>
     </div>
   );
 }
