@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link as NavLink, Route, Switch } from "react-router-dom";
 import Gallery from "./Gallery";
 
 export default function Galleries() {
@@ -21,16 +21,26 @@ export default function Galleries() {
     getGalleries();
   }, []);
   return (
-    <div>
+    <div className="container-fluid">
       <h1 className="headers">GALLERIES</h1>
-      {galleries.map((g) => (
-        <div key={g.id}>
-          <h3>
-            <Link to={`gallery/${g.id}`}>{g.name}</Link>
-          </h3>
-          {g.country} - {g.city}
-        </div>
-      ))}
+      <div className="row">
+        {galleries.map((g) => (
+          <div key={g.id} className="opencall-display col-lg-6 col-md-6">
+            <div className="card">
+              <div className="card-body shadow border-0">
+                <h2>
+                  <NavLink to={`gallery/${g.id}`} className="gal-name">
+                    {g.name}
+                  </NavLink>
+                </h2>
+                <h5 className="gal-location">
+                  {g.country} - {g.city}
+                </h5>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
       <Switch>
         <Route path="/gallery/:id">
           <Gallery />

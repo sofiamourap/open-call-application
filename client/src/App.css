@@ -69,3 +69,14 @@
   font-weight: bold;
   padding-top: 3%;
 }
+
+/* galleries component */
+.gal-name {
+  color: #944e6c;
+  font-family: "Ubuntu Condensed", sans-serif;
+}
+
+.gal-location {
+  color: #686d76;
+  font-family: "Ubuntu Condensed", sans-serif;
+}
