@@ -48,14 +48,14 @@ export default function CandidatsApplication() {
   };
 
   return (
-    <div>
+    <div className="container-fluid">
       {openCallInfo.map((inf) => (
         <div key={inf.id}>
           {/* {console.log(inf)} */}
-          <h1>{inf.residency_name}</h1>
-          <h2>{inf.name}</h2>
+          <h1 className="residency-name">{inf.residency_name}</h1>
+          <h3 className="app-gallery-name">{inf.name}</h3>
 
-          <li>{inf.description}</li>
+          <p>{inf.description}</p>
         </div>
       ))}
       <div>
@@ -86,7 +86,7 @@ export default function CandidatsApplication() {
             />
           </label>
 
-          <button className="btn btn-outline-success">Submit</button>
+          <button className="btn btn-outline-dark">Submit</button>
         </form>
       </div>
       <Switch>

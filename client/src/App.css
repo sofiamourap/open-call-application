@@ -80,3 +80,14 @@
   color: #686d76;
   font-family: "Ubuntu Condensed", sans-serif;
 }
+
+/* candidats application component */
+.residency-name {
+  color: #790c5a;
+  font-size: 3em;
+  font-family: "Ubuntu Condensed", sans-serif;
+}
+
+.app-gallery-name {
+  font-family: "Ubuntu Condensed", sans-serif;
+}
