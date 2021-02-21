@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
 import CandidatsApplication from "./CandidatsApplication";
 import Gallery from "./Gallery";
-import OpenCall from "./OpenCall";
 
 export default function Home() {
   const [openCalls, setOpenCalls] = useState([]);
@@ -30,14 +29,9 @@ export default function Home() {
             <NavLink to={`gallery/${e.gallery_id}`} className="gallery-id">
               <h3>{e.name}</h3>
             </NavLink>
-
             <NavLink to={`/application/${e.id}`}>
               <h4>{e.residency_name}</h4>
-              {e.description} - {e.status}
-            </NavLink>
-            <NavLink to={`/openCall/${e.id}`}>
-              {" "}
-              <h5>Admin view for this open call</h5>
+              {e.description} | {e.status}
             </NavLink>
           </div>
         ))}
@@ -48,9 +42,6 @@ export default function Home() {
         </Route>
         <Route path="/gallery/:id">
           <Gallery />
-        </Route>
-        <Route path="/openCall/:id">
-          <OpenCall />
         </Route>
       </Switch>
     </div>

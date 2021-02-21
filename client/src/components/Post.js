@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, Switch, Route } from "react-router-dom";
-import CandidatsApplication from "./CandidatsApplication";
+import { NavLink, Switch, Route } from "react-router-dom";
+import OpenCall from "./OpenCall";
 export default function Post() {
   const [openCalls, setOpenCalls] = useState([]);
   const [newOpenCall, setNewOpenCall] = useState({
@@ -58,9 +58,10 @@ export default function Post() {
       <h1>OPEN CALLS</h1>
       {openCalls.map((o) => (
         <div key={o.id}>
-          <Link to={`/application/${o.id}`}>
+          <NavLink to={`/openCall/${o.id}`}>
+            <h2>{o.name}</h2>
             <h3>{o.residency_name}</h3>
-          </Link>
+          </NavLink>
         </div>
       ))}
       <div>
@@ -82,8 +83,8 @@ export default function Post() {
       </div>
       <p>this is a admin page</p>
       <Switch>
-        <Route path="/application/:id">
-          <CandidatsApplication />
+        <Route path="/openCall/:id">
+          <OpenCall />
         </Route>
       </Switch>
     </div>
