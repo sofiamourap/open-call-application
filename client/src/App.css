@@ -1,1 +1,19 @@
+.nav-item {
+  color: #e8e8e8;
+  margin: 10px;
+}
 
+.gallery-id {
+  color: #14274e;
+}
+
+.headers {
+  color: #8d93ab;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+#open-call-col {
+  background-color: #f1f3f8;
+  border: 1px solid;
+}

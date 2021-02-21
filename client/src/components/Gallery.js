@@ -5,8 +5,18 @@ import OpenCalls from "./OpenCalls";
 export default function Gallery() {
   const [gallery, setGallery] = useState([]);
   const { id } = useParams();
+  const [galInfos, setGalInfos] = useState([]);
 
-  const getGallery = () => {
+  const getGalleryInfos = () => {
+    fetch(`/gallery/${id}`)
+      .then((response) => response.json())
+      .then((gal) => {
+        setGalInfos(gal);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const getGalleryOpenCalls = () => {
     fetch(`/gallery/${id}/opencalls`)
       .then((response) => response.json())
       .then((gal) => {
@@ -16,18 +26,26 @@ export default function Gallery() {
   };
 
   useEffect(() => {
-    getGallery();
+    getGalleryOpenCalls();
+    getGalleryInfos();
   }, []);
+
   //link to application
   return (
     <div>
-      {gallery.map((g) => (
-        <div key={g.id}>
-          <h1>{g.name}</h1>
-          <h3>
-            {g.country} | {g.city}
-          </h3>
-          <h4>Open Calls</h4>
+      <div>
+        {galInfos.map((gal) => (
+          <div key={gal.id}>
+            <h1>{gal.name}</h1>
+            <h3>
+              {gal.country} | {gal.city}
+            </h3>
+          </div>
+        ))}
+      </div>
+      <h4>Open Calls</h4>
+      {gallery.map((g, i) => (
+        <div key={g[i]}>
           <Link to={"/openCall"}>
             <li>{g.residency_name}</li>
           </Link>
