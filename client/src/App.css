@@ -17,6 +17,8 @@
 }
 
 /* Inside the components */
+
+/* opencalls component */
 .headers {
   color: #8d93ab;
   font-family: "Montserrat-Black", sans-serif;
@@ -40,4 +42,30 @@
 .opencall-display {
   padding: 3% 2%;
   text-align: center;
+}
+
+/* gallery component */
+.gallery-info {
+  font-family: "Ubuntu Condensed", sans-serif;
+  padding: 4%;
+}
+
+.gallery-name {
+  color: #790c5a;
+  font-size: 3em;
+}
+
+.gallery-location {
+  color: #686d76;
+}
+
+.gallery-display {
+  padding: 4%;
+}
+
+#gallery-oc-header {
+  color: #8d93ab;
+  font-family: "Montserrat-Black", sans-serif;
+  font-weight: bold;
+  padding-top: 3%;
 }
