@@ -31,7 +31,7 @@ export default function Gallery() {
   }, []);
 
   //link to application. Can I use a map inside the Route tag to use the open call id?
-  // center the
+
   //add in the future a carossel of previous works from opencalls. for now use set images
   return (
     <div className="container-fluid">
@@ -62,7 +62,12 @@ export default function Gallery() {
           </div>
         ))}
       </div>
-      <div>{/* start here the carossel */}</div>
+      <h4 className="text-center mt-4" id="gallery-oc-header">
+        PREVIOUS RESIDENCY WORKS
+      </h4>
+      <div id="img-carousel">
+        <img src="" />
+      </div>
       <Switch>
         <Route path="/openCall">
           <OpenCalls />
