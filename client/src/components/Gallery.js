@@ -30,7 +30,8 @@ export default function Gallery() {
     getGalleryInfos();
   }, []);
 
-  //link to application
+  //link to application. Can I use a map inside the Route tag to use the open call id?
+  //add in the future a carossel of previous works from opencalls. for now use set images
   return (
     <div>
       <div>

@@ -1,19 +1,43 @@
+/* .App {
+  background-color: #f4f4f2;
+} */
+
+/* Nav Bar */
+.navbar-brand {
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 2.5rem;
+}
+
 .nav-item {
-  color: #e8e8e8;
+  color: #bbbfca;
   margin: 10px;
-}
-
-.gallery-id {
-  color: #14274e;
-}
-
-.headers {
-  color: #8d93ab;
-  font-family: "Roboto", sans-serif;
+  /* padding: 0 18px; */
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
 
-#open-call-col {
-  background-color: #f1f3f8;
-  border: 1px solid;
+/* Inside the components */
+.headers {
+  color: #8d93ab;
+  font-family: "Montserrat-Black", sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
+}
+/* galleries names */
+.gallery-id {
+  color: #944e6c;
+}
+
+/* open calls display */
+.container-fluid {
+  padding: 3%;
+}
+
+.opencalls-links {
+  color: #495464;
+}
+
+.opencall-display {
+  padding: 3% 2%;
+  text-align: center;
 }

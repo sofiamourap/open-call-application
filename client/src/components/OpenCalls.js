@@ -21,18 +21,27 @@ export default function Home() {
     getOpenCalls();
   }, []);
   return (
-    <div>
+    <div className="container-fluid">
       <h1 className="headers">OPEN CALLS</h1>
       <div className="row">
         {openCalls.map((e) => (
-          <div key={e.id} className="col-lg-4 col-md-6" id="open-call-col">
-            <NavLink to={`gallery/${e.gallery_id}`} className="gallery-id">
-              <h3>{e.name}</h3>
-            </NavLink>
-            <NavLink to={`/application/${e.id}`}>
-              <h4>{e.residency_name}</h4>
-              {e.description} | {e.status}
-            </NavLink>
+          <div key={e.id} className="opencall-display col-lg-4 col-md-6">
+            <div className="card">
+              <div className="card-header">
+                <NavLink to={`gallery/${e.gallery_id}`} className="gallery-id">
+                  <h3>{e.name}</h3>
+                </NavLink>
+              </div>
+              <div className="card-body shadow border-0">
+                <NavLink
+                  to={`/application/${e.id}`}
+                  className="opencalls-links"
+                >
+                  <h4>{e.residency_name}</h4>
+                  {e.description} | {e.status}
+                </NavLink>
+              </div>
+            </div>
           </div>
         ))}
       </div>

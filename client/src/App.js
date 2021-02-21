@@ -21,28 +21,41 @@ function App() {
       <div className="App">
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
           <h4 className="navbar-brand">logo</h4>
-          <ul className="navbar-nav ml-auto">
-            <li>
-              <NavLink to="/" className="nav-item">
-                HOME
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/openCall" className="nav-item">
-                Open Calls
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/galleries" className="nav-item">
-                Galleries
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/post" className="nav-item">
-                Post | admin page
-              </NavLink>
-            </li>
-          </ul>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="navbarSupportedContent" className="collapse navbar-collapse">
+            <ul className="navbar-nav ml-auto">
+              <li>
+                <NavLink to="/" className="nav-item dropdown">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/openCall" className="nav-item dropdown">
+                  Open Calls
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/galleries" className="nav-item dropdown">
+                  Galleries
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/post" className="nav-item dropdown">
+                  Post | admin page
+                </NavLink>
+              </li>
+            </ul>
+          </div>
         </nav>
 
         <Switch>

@@ -41,7 +41,7 @@ export default function Post() {
         },
         body: JSON.stringify(newOpenCall),
       });
-      console.log(newOpenCall);
+      // console.log(newOpenCall);
     } catch (err) {
       console.log(err);
     }
@@ -55,7 +55,7 @@ export default function Post() {
 
   return (
     <div>
-      <h1>OPEN CALLS</h1>
+      <h1 className="headers">OPEN CALLS</h1>
       {openCalls.map((o) => (
         <div key={o.id}>
           <NavLink to={`/openCall/${o.id}`}>

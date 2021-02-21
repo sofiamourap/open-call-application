@@ -22,7 +22,7 @@ export default function Galleries() {
   }, []);
   return (
     <div>
-      <h1>GALLERIES</h1>
+      <h1 className="headers">GALLERIES</h1>
       {galleries.map((g) => (
         <div key={g.id}>
           <h3>
