@@ -38,7 +38,9 @@ export default function Home() {
                   className="opencalls-links"
                 >
                   <h4>{e.residency_name}</h4>
-                  {e.description} | {e.status}
+                  <h6> {e.description} </h6>
+                  Status | {e.status ? "Open" : "Closed"}
+                  <div></div>
                 </NavLink>
               </div>
             </div>

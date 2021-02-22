@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   NavLink,
 } from "react-router-dom";
 
@@ -14,6 +13,7 @@ import Galleries from "./components/Galleries";
 import Post from "./components/Post";
 import Gallery from "./components/Gallery";
 import CandidatsApplication from "./components/CandidatsApplication";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
           <h4 className="navbar-brand">logo</h4>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -30,7 +30,7 @@ function App() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div id="navbarSupportedContent" className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
@@ -76,6 +76,9 @@ function App() {
           </Route>
           <Route path="/application/:id">
             <CandidatsApplication />
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </div>

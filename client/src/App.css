@@ -128,3 +128,24 @@
   line-height: 1.5;
   margin-top: 5%;
 }
+
+/* home component  */
+#home-image {
+  max-width: 500px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+}
+
+#home-heading {
+  font-family: "Josefin Sans", sans-serif;
+  color: #373a40;
+  margin-right: 10%;
+  margin-top: 5%;
+  font-size: 3.5rem;
+}
+
+.home-container {
+  padding: 3% 8%;
+  margin-top: 10%;
+}

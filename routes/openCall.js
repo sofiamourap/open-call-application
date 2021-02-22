@@ -51,10 +51,8 @@ router.get("/:id", function (req, res) {
 //EDIT open Call by id
 router.put("/:id", function (req, res) {
   const { id } = req.params;
-  const { gallery_id, status } = req.body;
-  db(
-    `UPDATE openCall SET gallery_id="${gallery_id}", status="${status}" WHERE id="${id}";`
-  )
+  const { status } = req.body;
+  db(`UPDATE openCall SET status="${status}" WHERE id="${id}";`)
     .then(res.send({ message: "status updated" }))
     .catch((err) => res.status(500).send(err));
 });
