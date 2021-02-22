@@ -77,6 +77,7 @@ export default function OpenCall() {
           <h1 key={oc.id} className="residency-name">
             {oc.residency_name}
           </h1>
+          <h3 className="app-gallery-name">{oc.name}</h3>
           <h5 className="admin-residency-desc">{oc.description}</h5>
           <p className="admin-residency-desc">
             status: {oc.status ? "open" : "closed"}

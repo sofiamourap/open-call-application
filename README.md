@@ -47,5 +47,6 @@ Here are the API routes (for the BE)
 - Allow the gallery to post images in their pages
 - Add functionality to the open/close open call buttons (/opencall/:id) in the FE
 - Create a way to change the status of the candidat application
+- Send a message after submitting an application and a new open call
 
 _This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._
