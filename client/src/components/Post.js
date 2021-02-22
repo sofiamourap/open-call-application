@@ -8,6 +8,20 @@ export default function Post() {
     description: "",
     gallery_id: "",
   });
+  const [galleries, setGalleries] = useState([]);
+
+  // console.log(openCalls[0]["name"]);
+
+  const getGalleries = () => {
+    fetch("/gallery")
+      .then((response) => response.json())
+      .then((gallery) => {
+        setGalleries(gallery);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const getOpenCalls = () => {
     fetch("/opencall")
@@ -19,8 +33,6 @@ export default function Post() {
         console.log(error);
       });
   };
-
-  //fetch opencall
 
   const handleChange = ({ target }) => {
     setNewOpenCall((state) => ({ ...state, [target.name]: target.value }));
@@ -49,9 +61,8 @@ export default function Post() {
 
   useEffect(() => {
     getOpenCalls();
+    getGalleries();
   }, []);
-
-  //need to create a way to select a gallery from a dropdown list and pass it the id of it
 
   return (
     <div>
@@ -71,7 +82,6 @@ export default function Post() {
             </div>
           ))}
         </div>
-        <div></div>
         <div className="new-oc-input">
           <form onSubmit={handleSubmit}>
             <div className="input-group mb-3 col-lg-6 col-md-6">
@@ -88,15 +98,23 @@ export default function Post() {
             </div>
             <div className="input-group mb-3 col-lg-6 col-md-6">
               <div className="input-group-prepend">
-                <span className="input-group-text">Gallery</span>
+                <label className="input-group-text" for="inputGallery">
+                  Gallery
+                </label>
               </div>
-              <input
-                type="text"
-                className="form-control"
+
+              <select
+                className="custom-select"
+                id="inputGallery"
                 name="gallery_id"
                 value={newOpenCall.gallery_id}
                 onChange={handleChange}
-              />
+              >
+                <option selected>Choose...</option>
+                {galleries.map((e) => (
+                  <option value={e.id}>{e.name}</option>
+                ))}
+              </select>
             </div>
             <div className="input-group mb-3 ml-3">
               <div className="input-group-prepend">
