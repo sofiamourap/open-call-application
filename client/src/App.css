@@ -131,21 +131,22 @@
 
 /* home component  */
 #home-image {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 700px;
+  max-height: 800px;
   width: auto;
   height: auto;
+  border-radius: 1%;
 }
 
 #home-heading {
   font-family: "Josefin Sans", sans-serif;
   color: #373a40;
   margin-right: 10%;
-  margin-top: 5%;
+  margin-top: 10%;
   font-size: 3.5rem;
 }
 
 .home-container {
   padding: 3% 8%;
-  margin-top: 10%;
+  margin-top: 5%;
 }

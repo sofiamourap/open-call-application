@@ -28,11 +28,24 @@ This application allow you to upload different open-calls and allow the users to
 
 ![image of tables in MySQL](./tables.jpg)
 
-- [API routes](https://docs.google.com/document/d/1uCJKWCHU2NAHr1hqVMKX6w5qcrjEZEmJrp3aHFBxYEU/edit?usp=sharing) 
+This is a basic ideia of the components / pages
+![image of tables in MySQL](./components-sketch.jpg)
+
+Here are the API routes (for the BE)
+
+- [API routes](https://docs.google.com/document/d/1uCJKWCHU2NAHr1hqVMKX6w5qcrjEZEmJrp3aHFBxYEU/edit?usp=sharing)
 
 ### Development
 
 - Run `npm start` in project directory to start the Express server on port 5000
 - In another terminal, do `cd client` and run `npm start` to start the client in development mode with hot reloading in port 3000.
 
- _This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._
+## NEXT STEPS
+
+- Create an authentication for the gallery user
+- Accept a file as an input
+- Allow the gallery to post images in their pages
+- Add functionality to the open/close open call buttons (/opencall/:id) in the FE
+- Create a way to change the status of the candidat application
+
+_This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._

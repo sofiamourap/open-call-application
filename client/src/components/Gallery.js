@@ -88,7 +88,7 @@ export default function Gallery() {
             </div>
             <div className="carousel-item">
               <img
-                src="https://lh3.googleusercontent.com/proxy/LbFeBIPDVOQEsVAT_qqdNxOyF2EJPIhB0qAY7z6J-Hcf60PYv33ag9LxFQYBMCIInG0-iZ2IQaUd4nFo9po_t_yZQwLMVfcDBo0o3jdYu4OrwL8sunB7UAwvNmw_3m9fK1nKY1Y0D6WTLCEUivvReJxireI"
+                src="https://payload.cargocollective.com/1/14/457150/12766625/18077256_1731212416894144_6973830196948036356_o_1000.jpg"
                 className="d-block w-100"
                 alt=""
               />

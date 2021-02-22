@@ -2,18 +2,6 @@ var express = require("express");
 var router = express.Router();
 const db = require("../model/helper");
 
-//GET openCall info
-router.get("/:id/info", function (req, res) {
-  const { id } = req.params;
-  db(
-    `SELECT openCall.residency_name,openCall.description, openCall.status, candidats.full_name, candidats.email, candidats.project, gallery.name FROM openCall JOIN candidats ON candidats.residency_id = openCall.id JOIN gallery ON openCall.gallery_id = gallery.id WHERE openCall.id="${id}";`
-  )
-    .then((result) => {
-      res.send(result.data);
-    })
-    .catch((err) => res.status(500).send(err));
-});
-
 //GET candidats of that opencall
 router.get("/:id/candidats", function (req, res) {
   const { id } = req.params;
@@ -32,6 +20,15 @@ router.post("/:id/candidats", function (req, res) {
     `INSERT INTO candidats (full_name, project, email, residency_id) VALUES ("${full_name}", "${project}","${email}", "${id}");`
   )
     .then(res.send({ message: "Project uploaded" }))
+    .catch((err) => res.status(500).send(err));
+});
+
+//DELETE candidat
+router.delete("/:id/candidats/:candidat_id", function (req, res) {
+  const { id } = req.params;
+  const { candidat_id } = req.params;
+  db(`DELETE FROM candidats WHERE id="${candidat_id}";`)
+    .then(res.send({ message: "candidat deleted" }))
     .catch((err) => res.status(500).send(err));
 });
 
