@@ -32,26 +32,35 @@ export default function OpenCall() {
   }, []);
 
   return (
-    <div>
+    <div className="container-fluid">
       {openCall.map((oc) => (
         <div key={oc.id}>
-          <h1 key={oc.id}>{oc.residency_name}</h1>
-          {oc.description}
+          <h1 key={oc.id} className="residency-name">
+            {oc.residency_name}
+          </h1>
+          <p className="admin-residency-desc">{oc.description}</p>
         </div>
       ))}
-      <div>
-        {candidats.map((c) => (
-          <div>
-            <h3 key={c.id}>{c.full_name}</h3>
-            <li>{c.email}</li>
-            <li>{c.project}</li>
-            <li>Status: {c.status}</li>
-          </div>
-        ))}
-      </div>
-      <div>
-        <h4>TOTAL ARTISTS: {candidats.length}</h4>
-        <p>This is a admin page</p>
+      <div className="container-fluid">
+        <div className="row">
+          {candidats.map((c) => (
+            <div className="opencall-display col-lg-4 col-md-6">
+              <div className="card">
+                <div className="card-body shadow border-0">
+                  <h3 key={c.id} className="admin-fullname">
+                    {c.full_name}
+                  </h3>
+                  <p>Email: {c.email}</p>
+                  <p>Project: {c.project}</p>
+                  <p className="card-footer text-muted">Status: {c.status}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="total-candidats">
+          <h4>TOTAL ARTISTS: {candidats.length}</h4>
+        </div>
       </div>
     </div>
   );

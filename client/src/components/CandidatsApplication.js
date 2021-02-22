@@ -39,7 +39,7 @@ export default function CandidatsApplication() {
   }, []);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     postNewProject();
   };
 
@@ -51,40 +51,50 @@ export default function CandidatsApplication() {
     <div className="container-fluid">
       {openCallInfo.map((inf) => (
         <div key={inf.id}>
-          {/* {console.log(inf)} */}
           <h1 className="residency-name">{inf.residency_name}</h1>
           <h3 className="app-gallery-name">{inf.name}</h3>
 
-          <p>{inf.description}</p>
+          <p className="residency-desc">{inf.description}</p>
         </div>
       ))}
       <div>
         <form onSubmit={handleSubmit}>
-          <label>
-            Full name
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Full Name</span>
+            </div>
             <input
               type="text"
+              className="form-control"
               name="full_name"
               value={newProject.full_name}
               onChange={handleChange}
             />
-          </label>
-          <label>
-            Email
+          </div>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Email</span>
+            </div>
             <input
+              type="text"
+              className="form-control"
               name="email"
               value={newProject.email}
               onChange={handleChange}
             />
-          </label>
-          <label>
-            Project
-            <input
+          </div>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Project</span>
+            </div>
+            <textarea
+              type="text"
+              className="form-control"
               name="project"
               value={newProject.project}
               onChange={handleChange}
             />
-          </label>
+          </div>
 
           <button className="btn btn-outline-dark">Submit</button>
         </form>

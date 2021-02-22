@@ -70,6 +70,16 @@
   padding-top: 3%;
 }
 
+.change-images-container {
+  height: 300px;
+  width: 400px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  border-radius: 7%;
+}
+
 /* galleries component */
 .gal-name {
   color: #944e6c;
@@ -90,4 +100,31 @@
 
 .app-gallery-name {
   font-family: "Ubuntu Condensed", sans-serif;
+}
+
+.residency-desc {
+  font-family: "Montserrat-black", sans-serif;
+  font-size: 1.3rem;
+  padding: 10%;
+}
+
+/* admin component */
+.admin-residency-desc {
+  margin-left: 10%;
+  margin-top: 5%;
+  font-family: "Montserrat-black", sans-serif;
+  font-size: 1.5rem;
+}
+
+.admin-fullname {
+  color: #373a40;
+  font-family: "Montserrat-Black", sans-serif;
+}
+
+.total-candidats {
+  color: #373a40;
+  font-family: "Montserrat-Black", sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-top: 5%;
 }

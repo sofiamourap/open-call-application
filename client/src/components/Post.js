@@ -31,20 +31,20 @@ export default function Post() {
     postOpenCall();
   };
 
-  //post Open Call
-  const postOpenCall = async () => {
-    try {
-      const result = await fetch("/opencall", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newOpenCall),
+  const postOpenCall = () => {
+    fetch("/opencall", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newOpenCall),
+    })
+      .then(() => {
+        getOpenCalls();
+      })
+      .catch((error) => {
+        console.log("Error");
       });
-      // console.log(newOpenCall);
-    } catch (err) {
-      console.log(err);
-    }
   };
 
   useEffect(() => {
@@ -55,33 +55,66 @@ export default function Post() {
 
   return (
     <div>
-      <h1 className="headers">OPEN CALLS</h1>
-      {openCalls.map((o) => (
-        <div key={o.id}>
-          <NavLink to={`/openCall/${o.id}`}>
-            <h2>{o.name}</h2>
-            <h3>{o.residency_name}</h3>
-          </NavLink>
+      <div className="container-fluid">
+        <h1 className="headers">OPEN CALLS</h1>
+        <div className="row">
+          {openCalls.map((o) => (
+            <div key={o.id} className="opencall-display col-lg-4 col-md-6">
+              <div>
+                <NavLink to={`/openCall/${o.id}`}>
+                  <h2 className="card-header gallery-id">{o.name}</h2>
+                  <h3 className="card-body shadow border-0 opencalls-links">
+                    {o.residency_name}
+                  </h3>
+                </NavLink>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Residency Name
-            <input name="residency_name" onChange={handleChange} />
-          </label>
-          <label>
-            Description
-            <input name="description" onChange={handleChange} />
-          </label>
-          <label>
-            Gallery
-            <input name="gallery_id" onChange={handleChange} />
-          </label>
-          <button>Submit</button>
-        </form>
+        <div></div>
+        <div className="new-oc-input">
+          <form onSubmit={handleSubmit}>
+            <div className="input-group mb-3 col-lg-6 col-md-6">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Residence Name</span>
+              </div>
+              <input
+                type="text"
+                className="form-control"
+                name="residency_name"
+                value={newOpenCall.residency_name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="input-group mb-3 col-lg-6 col-md-6">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Gallery</span>
+              </div>
+              <input
+                type="text"
+                className="form-control"
+                name="gallery_id"
+                value={newOpenCall.gallery_id}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="input-group mb-3 ml-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Description</span>
+              </div>
+              <textarea
+                type="text"
+                className="form-control"
+                name="description"
+                value={newOpenCall.description}
+                onChange={handleChange}
+              />
+            </div>
+
+            <button className="btn btn-outline-dark">Submit</button>
+          </form>
+        </div>
       </div>
-      <p>this is a admin page</p>
       <Switch>
         <Route path="/openCall/:id">
           <OpenCall />

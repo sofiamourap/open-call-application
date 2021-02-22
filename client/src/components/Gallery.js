@@ -65,8 +65,67 @@ export default function Gallery() {
       <h4 className="text-center mt-4" id="gallery-oc-header">
         PREVIOUS RESIDENCY WORKS
       </h4>
-      <div id="img-carousel">
-        <img src="" />
+
+      <div>
+        <div
+          id="carouselExampleControls"
+          className="carousel slide change-images-container"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7KkbJZkDhQdRvKxigdBN6RQqIYvoLBWGCkg&usqp=CAU"
+                className="d-block w-100"
+                alt=""
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFCtNqMZgrSBd3oDQUjus6eQpsNolYCXM-Cg&usqp=CAU"
+                className="d-block w-100"
+                alt=""
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://lh3.googleusercontent.com/proxy/LbFeBIPDVOQEsVAT_qqdNxOyF2EJPIhB0qAY7z6J-Hcf60PYv33ag9LxFQYBMCIInG0-iZ2IQaUd4nFo9po_t_yZQwLMVfcDBo0o3jdYu4OrwL8sunB7UAwvNmw_3m9fK1nKY1Y0D6WTLCEUivvReJxireI"
+                className="d-block w-100"
+                alt=""
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://video-images.vice.com/_uncategorized/1532978227676-IMG_7199-menor.jpeg"
+                className="d-block w-100"
+                alt=""
+              />
+            </div>
+          </div>
+          <a
+            className="carousel-control-prev"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a
+            className="carousel-control-next"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
       </div>
       <Switch>
         <Route path="/openCall">
