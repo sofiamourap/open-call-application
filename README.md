@@ -24,16 +24,19 @@ This application allow you to upload different open-calls and allow the users to
 
 - Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create 2 tables called 'candidats' and 'open-call' in your database.
 
-- In your MySQL console, you can run `use residents;` and then `describe candidats;` to see the structure of the candidats table. Same thing for the 'open-call'table. This is a description of the tables:
+- In your MySQL console, you can run `use residents;` and then `describe candidats;` to see the structure of the candidats table. Same thing for the 'open-call' and 'gallery'tables. This is a description of the tables:
 
 ![image of tables in MySQL](./tables.jpg)
-
-This is a basic ideia of the components / pages
-![image of tables in MySQL](./components-sketch.jpg)
+IMPORTANT: the foreign key on the guide it's just to know how the tables are connect, but in the project ww will be using the JOIN tables.
 
 Here are the API routes (for the BE)
 
 - [API routes](https://docs.google.com/document/d/1uCJKWCHU2NAHr1hqVMKX6w5qcrjEZEmJrp3aHFBxYEU/edit?usp=sharing)
+
+## FE COMPONENTS
+
+This is a basic ideia of the components / pages
+![image of tables in MySQL](./components-sketch.jpg)
 
 ### Development
 
