@@ -63,7 +63,7 @@ export default function Gallery() {
         ))}
       </div>
       <h4 className="text-center mt-4" id="gallery-oc-header">
-        PREVIOUS RESIDENCY WORKS
+        PREVIOUS RESIDENCE WORKS
       </h4>
 
       <div>
