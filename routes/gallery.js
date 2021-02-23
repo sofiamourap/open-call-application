@@ -26,7 +26,6 @@ router.get("/:id/opencalls", function (req, res) {
 //GET Gallery by id
 router.get("/:id", function (req, res) {
   const { id } = req.params;
-  c;
   db(`SELECT * FROM gallery WHERE id="${id}";`)
     .then((result) => {
       res.send(result.data);
