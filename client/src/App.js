@@ -14,13 +14,17 @@ import Post from "./components/Post";
 import Gallery from "./components/Gallery";
 import CandidatsApplication from "./components/CandidatsApplication";
 import Home from "./components/Home";
+import Login from "./components/Login";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-          <h4 className="navbar-brand">logo</h4>
+          <NavLink to="/">
+            <h4 className="navbar-brand">logo</h4>
+          </NavLink>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -35,11 +39,6 @@ function App() {
           <div id="navbarSupportedContent" className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
               <li>
-                <NavLink to="/" className="nav-item dropdown">
-                  Home
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to="/openCall" className="nav-item dropdown">
                   Open Calls
                 </NavLink>
@@ -52,6 +51,11 @@ function App() {
               <li>
                 <NavLink to="/post" className="nav-item dropdown">
                   Post | admin page
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/login" className="nav-item dropdown">
+                  Login
                 </NavLink>
               </li>
             </ul>
@@ -76,6 +80,9 @@ function App() {
           </Route>
           <Route path="/application/:id">
             <CandidatsApplication />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Home />

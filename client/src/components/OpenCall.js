@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export default function OpenCall() {
   const [candidats, setCandidats] = useState([]);
@@ -18,13 +19,24 @@ export default function OpenCall() {
   };
 
   //GET all candidats from this opencall
+  // const getCandidats = () => {
+  //   fetch(`/opencall/${id}/candidats`)
+  //     .then((response) => response.json())
+  //     .then((cand) => {
+  //       setCandidats(cand);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
   const getCandidats = () => {
-    fetch(`/opencall/${id}/candidats`)
-      .then((response) => response.json())
-      .then((cand) => {
-        setCandidats(cand);
-      })
-      .catch((err) => console.log(err));
+    axios(`/opencall/${id}/candidats`, {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    })
+      .then((result) => setCandidats(result.data))
+      .catch((error) => console.log(error));
   };
 
   //DELETE openCall by id
