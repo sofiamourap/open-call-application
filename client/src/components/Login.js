@@ -20,19 +20,7 @@ function Login(props) {
     })
       .then((result) => {
         localStorage.setItem("token", result.data.token);
-        console.log(result.data.message, result.data.token);
       })
-      .catch((error) => console.log(error));
-  };
-
-  const requestData = () => {
-    axios("/opencall/1/candidats", {
-      method: "GET",
-      headers: {
-        "x-access-token": localStorage.getItem("token"),
-      },
-    })
-      .then((result) => console.log(result.data.message))
       .catch((error) => console.log(error));
   };
 
@@ -56,11 +44,7 @@ function Login(props) {
         <button className=" btn btn-outline-dark" onClick={login}>
           Log in
         </button>
-      </div>
-      <div className="text-center p-4">
-        <button className=" btn btn-outline-primary" onClick={requestData}>
-          Request protected data
-        </button>
+        <button className=" btn btn-dark ml-2">Admin page</button>
       </div>
     </div>
   );
