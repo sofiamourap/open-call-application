@@ -1,6 +1,6 @@
 # open-call-application
 
-This application allow you to upload different open-calls and allow the users to apply to them. It was done using React, Node/Express and MySQL.
+To fulfill the needs of a group of independent galleries, I created an end-to-end app with responsive design in the Front-end (using React, ReactRouter, Bootstrap) and Back-end (Node.js/Express). All the data needed to make this app useful (Artists, Galleries and Open-call informations) was stored in a MySQL database that I created from scratch.
 
 ## Setup
 
