@@ -141,7 +141,7 @@
 #home-heading {
   font-family: "Josefin Sans", sans-serif;
   color: #373a40;
-  margin-right: 10%;
+  /* color: white; */
   margin-top: 10%;
   font-size: 3.5rem;
 }
@@ -149,4 +149,10 @@
 .home-container {
   padding: 3% 8%;
   margin-top: 5%;
+}
+
+/* login component */
+.login-container {
+  margin-top: 5%;
+  max-width: 50%;
 }

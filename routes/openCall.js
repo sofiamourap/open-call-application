@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
+var userShouldBeLoggedIn = require("../guards/userShouldBeLoggedIn");
 const db = require("../model/helper");
 
 //GET candidats of that opencall
-router.get("/:id/candidats", function (req, res) {
+router.get("/:id/candidats", userShouldBeLoggedIn, function (req, res) {
   const { id } = req.params;
   db(`SELECT * FROM candidats WHERE residency_id="${id}"`)
     .then((result) => {
