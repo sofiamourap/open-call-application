@@ -1,5 +1,12 @@
 # open-call-application
 
+This project can be found here: https://opencall-application.herokuapp.com/
+
+To explore all the functions, use the following info for login:
+
+- name: GOA
+- password: goa
+
 To fulfill the needs of a group of independent galleries, I created an end-to-end app with responsive design in the Front-end (using React, ReactRouter, Bootstrap) and Back-end (Node.js/Express). All the data needed to make this app useful (Artists, Galleries and Open-call informations) was stored in a MySQL database that I created from scratch.
 
 ## Setup
