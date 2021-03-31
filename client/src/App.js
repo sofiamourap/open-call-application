@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -14,13 +14,28 @@ import Post from "./components/Post";
 import Gallery from "./components/Gallery";
 import CandidatsApplication from "./components/CandidatsApplication";
 import Home from "./components/Home";
+import Login from "./components/Login";
 
 function App() {
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    token ? setIsLoggedIn(true) : setIsLoggedIn(false);
+  }, []);
+
+  const [isLoggedIn, setIsLoggedIn] = useState();
+
+  function handleLogIn(status) {
+    setIsLoggedIn(status);
+  }
+
   return (
     <Router>
       <div className="App">
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-          <h4 className="navbar-brand">logo</h4>
+          <NavLink to="/">
+            <h4 className="navbar-brand">logo</h4>
+          </NavLink>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -35,11 +50,6 @@ function App() {
           <div id="navbarSupportedContent" className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
               <li>
-                <NavLink to="/" className="nav-item dropdown">
-                  Home
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to="/openCall" className="nav-item dropdown">
                   Open Calls
                 </NavLink>
@@ -49,11 +59,26 @@ function App() {
                   Galleries
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/post" className="nav-item dropdown">
-                  Post | admin page
-                </NavLink>
-              </li>
+              {isLoggedIn && (
+                <li>
+                  <NavLink to="/post" className="nav-item dropdown">
+                    Admin page
+                  </NavLink>
+                </li>
+              )}
+              {isLoggedIn ? (
+                <li>
+                  <NavLink to="/login" className="nav-item dropdown">
+                    Logout
+                  </NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink to="/login" className="nav-item dropdown">
+                    Login
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </nav>
@@ -76,6 +101,9 @@ function App() {
           </Route>
           <Route path="/application/:id">
             <CandidatsApplication />
+          </Route>
+          <Route path="/login">
+            <Login onChange={handleLogIn} />
           </Route>
           <Route path="/">
             <Home />

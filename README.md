@@ -1,6 +1,6 @@
 # open-call-application
 
-This application allow you to upload different open-calls and allow the users to apply to them. It was done using React, Node/Express and MySQL.
+To fulfill the needs of a group of independent galleries, I created an end-to-end app with responsive design in the Front-end (using React, ReactRouter, Bootstrap) and Back-end (Node.js/Express). All the data needed to make this app useful (Artists, Galleries and Open-call informations) was stored in a MySQL database that I created from scratch.
 
 ## Setup
 
@@ -20,6 +20,7 @@ This application allow you to upload different open-calls and allow the users to
   DB_USER=root
   DB_NAME=residents
   DB_PASS=YOURPASSWORD
+  SUPER_SECRET=shhhhhh
 ```
 
 - Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create 2 tables called 'candidats' and 'open-call' in your database.
@@ -45,11 +46,10 @@ This is a basic ideia of the components / pages
 
 ## NEXT STEPS
 
-- Create an authentication for the gallery user
 - Accept a file as an input
 - Allow the gallery to post images in their pages
 - Add functionality to the open/close open call buttons (/opencall/:id) in the FE
-- Create a way to change the status of the candidat application
+- Change the status of the candidat application
 - Send a message after submitting an application and a new open call
 
 _This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._

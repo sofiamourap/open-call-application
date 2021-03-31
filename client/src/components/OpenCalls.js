@@ -27,7 +27,7 @@ export default function Home() {
         {openCalls.map((e) => (
           <div key={e.id} className="opencall-display col-lg-4 col-md-6">
             <div className="card">
-              <div className="card-header">
+              <div className="card-header ">
                 <NavLink to={`gallery/${e.gallery_id}`} className="gallery-id">
                   <h3>{e.name}</h3>
                 </NavLink>
