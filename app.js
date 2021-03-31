@@ -22,6 +22,11 @@ app.use("/candidats", candidatsRouter);
 app.use("/gallery", galleryRouter);
 app.use("/opencall", openCallRouter);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
+app.use(express.static("public"));
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
