@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 function Login(props) {
   const [gallery, setGallery] = useState({
@@ -9,7 +10,7 @@ function Login(props) {
 
   const handleChange = (e) => {
     e.persist();
-    // console.log(e.target.value);
+
     setGallery((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
 
@@ -20,9 +21,28 @@ function Login(props) {
     })
       .then((result) => {
         localStorage.setItem("token", result.data.token);
+        getToken();
+        props.onChange(true);
       })
       .catch((error) => console.log(error));
   };
+
+  const signout = () => {
+    localStorage.clear("token");
+    getToken();
+    props.onChange(false);
+  };
+
+  const getToken = () => {
+    const token = localStorage.getItem("token");
+    setToken(token);
+  };
+
+  useEffect(() => {
+    getToken();
+  }, []);
+
+  const [token, setToken] = useState();
 
   return (
     <div>
@@ -44,7 +64,16 @@ function Login(props) {
         <button className=" btn btn-outline-dark" onClick={login}>
           Log in
         </button>
-        <button className=" btn btn-dark ml-2">Admin page</button>
+        <button className=" btn btn-dark ml-2" onClick={signout}>
+          Log out
+        </button>
+        {token && (
+          <div>
+            <NavLink to="/post">
+              <button className=" btn btn-dark mt-2 ">Admin page</button>
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );

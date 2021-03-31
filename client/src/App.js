@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -17,6 +17,17 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 
 function App() {
+  // useEffect(() => {
+  //   setToken(localStorage.getItem("token"));
+  // }, []);
+
+  // const [token, setToken] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  function handleLogIn(status) {
+    setIsLoggedIn(status);
+  }
+
   return (
     <Router>
       <div className="App">
@@ -48,16 +59,26 @@ function App() {
                   Galleries
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/post" className="nav-item dropdown">
-                  Post | admin page
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/login" className="nav-item dropdown">
-                  Login
-                </NavLink>
-              </li>
+              {isLoggedIn && (
+                <li>
+                  <NavLink to="/post" className="nav-item dropdown">
+                    Post | admin page
+                  </NavLink>
+                </li>
+              )}
+              {isLoggedIn ? (
+                <li>
+                  <NavLink to="/login" className="nav-item dropdown">
+                    Logout
+                  </NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink to="/login" className="nav-item dropdown">
+                    Login
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </nav>
@@ -82,7 +103,7 @@ function App() {
             <CandidatsApplication />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login onChange={handleLogIn} />
           </Route>
           <Route path="/">
             <Home />
