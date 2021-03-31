@@ -150,3 +150,9 @@
   padding: 3% 8%;
   margin-top: 5%;
 }
+
+/* login component */
+.login-container {
+  margin-top: 5%;
+  max-width: 50%;
+}

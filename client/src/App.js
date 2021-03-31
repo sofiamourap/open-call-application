@@ -17,12 +17,12 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 
 function App() {
-  // useEffect(() => {
-  //   setToken(localStorage.getItem("token"));
-  // }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    token ? setIsLoggedIn(true) : setIsLoggedIn(false);
+  }, []);
 
-  // const [token, setToken] = useState();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
 
   function handleLogIn(status) {
     setIsLoggedIn(status);
@@ -62,7 +62,7 @@ function App() {
               {isLoggedIn && (
                 <li>
                   <NavLink to="/post" className="nav-item dropdown">
-                    Post | admin page
+                    Admin page
                   </NavLink>
                 </li>
               )}

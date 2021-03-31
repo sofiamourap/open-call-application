@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 
 function Login(props) {
   const [gallery, setGallery] = useState({
-    name: "NTU Gallery",
-    password: "ntu",
+    name: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -46,17 +46,19 @@ function Login(props) {
 
   return (
     <div>
-      <div>
+      <div className="container login-container">
         <input
           value={gallery.name}
           onChange={handleChange}
           name="name"
           type="text"
+          placeholder="Gallery"
           className="form-control mb-2"
         />
         <input
           value={gallery.password}
           onChange={handleChange}
+          placeholder="password"
           name="password"
           type="password"
           className="form-control mb-2"
@@ -64,16 +66,9 @@ function Login(props) {
         <button className=" btn btn-outline-dark" onClick={login}>
           Log in
         </button>
-        <button className=" btn btn-dark ml-2" onClick={signout}>
+        <button className=" btn btn-secondary ml-2" onClick={signout}>
           Log out
         </button>
-        {token && (
-          <div>
-            <NavLink to="/post">
-              <button className=" btn btn-dark mt-2 ">Admin page</button>
-            </NavLink>
-          </div>
-        )}
       </div>
     </div>
   );
